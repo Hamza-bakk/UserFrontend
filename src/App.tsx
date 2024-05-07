@@ -1,16 +1,16 @@
 import './assets/styles/globals.scss';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+import LandingPage from './pages/Landingpage/landingpage';
 
 function App() {
-  
-
   return (
-    <>
-      <div className="text-3xl font-bold underline">
-        bonjour monde
-      </div>
-       
-    </>
-  )
+    <Router>
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+      </Routes>
+    </Router>
+  );
 }
 
-export default App
+export default App;
