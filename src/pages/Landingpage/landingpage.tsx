@@ -7,7 +7,6 @@ export default class LandingPage extends Component {
   render() {
     return (
       <div >
-        < Navbar/>
         < PageOne/>
       </div>
     );

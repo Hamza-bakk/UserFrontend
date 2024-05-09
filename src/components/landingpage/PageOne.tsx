@@ -36,7 +36,7 @@ export const PageOne = () => {
   });
 
   return (
-    <div className="h-screen gradient-background justify-center items-center text-2xl">
+    <div className="flex h-screen gradient-background justify-center items-center text-2xl">
       <div className="text-center text-white">
         <h1 className="text-4xl font-bold mb-4">
           Bonjour {user.first_name ? user.first_name : "Invité"}

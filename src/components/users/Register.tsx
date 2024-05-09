@@ -33,7 +33,7 @@ export const Register = () => {
       console.log("Je rentre");
       const response = await RegisterUser(formDataRegister);
       console.log("Ceci est un envoie ", response);
-      navigate('/');
+      navigate('/await/confirmation');
     } catch (error) {
       console.error('Error registering user:', error);
     }
