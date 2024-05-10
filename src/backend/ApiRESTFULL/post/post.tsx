@@ -2,6 +2,7 @@ import axios from "axios";
 import Cookies from 'js-cookie';
 import { API_URL } from "../../../../config";
 
+
 interface  RegistrationData{
   email: string;
   first_name: string;
@@ -32,7 +33,6 @@ export const PostAPI = {
   JwtCreate: async (credentials: JwtCreate) => {
     try {
       console.log("Credentials sent to the API request:", credentials);
-
       const response = await axios.post(
         `${API_URL}/auth/jwt/create/`,
         credentials

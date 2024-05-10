@@ -33,8 +33,8 @@ export const Login = () => {
       debugger
       const { access } = await JwtCreate(formDataLogin);
       const userData = await UserLogin(access);
-      setUser({ id: userData.id, first_name: userData.first_name });
-      Cookies.set('user', JSON.stringify({ id: userData.id }));
+      Cookies.set('user', JSON.stringify({ id: userData.id, first_name: userData.first_name }));
+      setUser({ id: userData.id, first_name: userData.first_name, });
       navigate('/');
     } catch (error) {
       console.error('Une erreur s\'est produite lors de la connexion :', error);
