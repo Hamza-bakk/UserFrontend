@@ -29,12 +29,10 @@ export const Login = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try { 
-      // eslint-disable-next-line no-debugger
-      debugger
       const { access } = await JwtCreate(formDataLogin);
       const userData = await UserLogin(access);
       Cookies.set('user', JSON.stringify({ id: userData.id, first_name: userData.first_name }));
-      setUser({ id: userData.id, first_name: userData.first_name, });
+      setUser({ id: userData.id, first_name: userData.first_name, email: userData.email });
       navigate('/');
     } catch (error) {
       console.error('Une erreur s\'est produite lors de la connexion :', error);

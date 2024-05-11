@@ -17,6 +17,7 @@ export const Logout = () => {
       setUser({
         id: "",
         first_name: "",
+        email: "",
       }); 
       Cookies.remove('user');
       navigate('/');

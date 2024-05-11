@@ -11,11 +11,12 @@ import {Logout } from './components/users/Logout';
 import { Register } from './components/users/Register';
 import { AwaitConfirmation } from './components/users/AwaitConfirmation';
 import { ConfirmationMail } from './components/users/ConfirmationMail';
+import { ResendConfirmationEmail } from './components/users/ResendConfirmationEmail';
 
 
 function App() {
-  const [, setUser] = useAtom(userAtom);
   
+  const [, setUser] = useAtom(userAtom);
   useEffect(() => {
     const user = Cookies.get('user');
     if (user) {
@@ -34,6 +35,7 @@ function App() {
         <Route path="/register" element={<Register/>} />
         <Route path="/await/confirmation" element={<AwaitConfirmation/>} />
         <Route path="/auth/users/activation/:uid/:token" element={<ConfirmationMail/>} />
+        <Route path="/auth/resend/confirmation/email" element={<ResendConfirmationEmail/>} />
       </Routes>
     </Router>
   );

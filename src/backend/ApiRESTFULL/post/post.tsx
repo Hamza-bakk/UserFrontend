@@ -1,5 +1,4 @@
 import axios from "axios";
-import Cookies from 'js-cookie';
 import { API_URL } from "../../../../config";
 
 
@@ -19,8 +18,6 @@ interface JwtCreate {
 export const PostAPI = {
   RegisterUser: async (credentials: RegistrationData) => {
     try {
-      console.log(credentials);
-      
       const response = await axios.post(`${API_URL}/auth/users/`, credentials);
       return response.data;
     } catch (error) {
@@ -32,7 +29,6 @@ export const PostAPI = {
 
   JwtCreate: async (credentials: JwtCreate) => {
     try {
-      console.log("Credentials sent to the API request:", credentials);
       const response = await axios.post(
         `${API_URL}/auth/jwt/create/`,
         credentials
@@ -79,6 +75,18 @@ export const PostAPI = {
       throw error;
     }
   },
+
+  ResendActivationEmail: async(email: string) => {
+    try {
+      await axios.post(`${API_URL}/auth/users/resend_activation/`, {
+        email: email,
+      });
+      } catch (error) {
+        console.error("Erreur lors de la réexpédition de l'email d'activation :", error);
+        throw error;
+      }
+    }
+  
 
   // Autres méthodes...
 };
