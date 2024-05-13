@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useAtom } from 'jotai';
 import { userAtom } from '../../stores/userAtom'
 import { useNavigate } from 'react-router-dom';
@@ -31,7 +31,7 @@ export const Login = () => {
     try { 
       const { access } = await JwtCreate(formDataLogin);
       const userData = await UserLogin(access);
-      Cookies.set('user', JSON.stringify({ id: userData.id, first_name: userData.first_name }));
+      Cookies.set('user', access);
       setUser({ id: userData.id, first_name: userData.first_name, email: userData.email });
       navigate('/');
     } catch (error) {

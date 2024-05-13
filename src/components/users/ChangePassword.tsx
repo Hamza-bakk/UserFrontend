@@ -37,23 +37,29 @@ export const ChangePassword = () => {
 
   return (
     <>
-      <div className="flex flex-col  h-screen text-black ">
-        <h1 className="flex flex-col mt-64">ChangePassword</h1>
+    <div className="flex gradient-background flex-col gap-8 items-center justify-center h-screen">
+    <div className="w-full flex flex-col max-w-lg p-8 gap-8 gradient-background rounded-lg shadow-lg"> 
+    <h2 className="text-3xl text-white mb-4 text-center">Changement de votre mot de passe</h2>
         <input
           type="password"
           value={newPassword}
           onChange={handleNewPasswordChange}
           placeholder="Nouveau mot de passe"
-        />
+          className="rounded-lg text-lg p-3 border border-gray-300 focus:border-blue-500 outline-none"
+          />
         <input
           type="password"
           value={reNewPassword}
           onChange={handleReNewPasswordChange}
           placeholder="Confirmer le nouveau mot de passe"
+          className="rounded-lg text-lg p-3 border border-gray-300 focus:border-blue-500 outline-none"
+
         />
-        <button onClick={ResetNewPasswordAPI}>
+        <button onClick={ResetNewPasswordAPI}
+        className=" bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md">
           Réinitialiser le mot de passe
         </button>
+    </div>
       </div>
     </>
   );

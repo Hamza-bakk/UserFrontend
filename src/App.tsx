@@ -1,7 +1,7 @@
 import './assets/styles/globals.scss';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Cookies from 'js-cookie';
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useAtom } from 'jotai';
 import { userAtom } from './stores/userAtom';
 import { Navbar } from './components/landingpage/Navbar';
@@ -22,7 +22,7 @@ function App() {
   useEffect(() => {
     const user = Cookies.get('user');
     if (user) {
-      setUser(JSON.parse(user));
+      setUser(user);
     }
   }, []);
 

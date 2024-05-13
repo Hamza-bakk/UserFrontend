@@ -1,5 +1,6 @@
 import { useAtom } from "jotai";
 import { userAtom } from "../../stores/userAtom";
+import React from "react";
 
 export const Navbar = () => {
   const [user] = useAtom(userAtom);

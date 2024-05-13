@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { userAtom } from "../../stores/userAtom";
 import { useAtom } from "jotai";
 
@@ -36,12 +36,12 @@ export const PageOne = () => {
   });
 
   return (
-    <div className="flex h-screen gradient-background justify-center items-center text-2xl">
-      <div className="text-center text-white">
-        <h1 className="text-4xl font-bold mb-4">
+    <div className="flex flex-col h-screen sm:p-4 sm:py-4 gradient-background justify-center items-center">
+      <div className="text-center text-white gap-8">
+        <h1 className="text-4xl font-bold ">
           Bonjour {user.first_name ? user.first_name : "Invité"}
         </h1>{" "}
-        <p className="text-2xl">
+        <p className="text-2xl mt-12">
           Nous sommes le {formattedDate} et il est {formattedTime}.
         </p>
       </div>
