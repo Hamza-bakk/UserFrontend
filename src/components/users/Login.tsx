@@ -59,7 +59,7 @@ export const Login = () => {
         </form>
         <div className='flex flex-col gap-4 justify-start mt-4 w-full'>
           <p className='text-white w-8/10'>Pas de compte ? <a href="/register" className='text-blue-500 w-2/8'>Inscrivez-vous</a></p>
-          <p className='text-white w-full'>Mot de passe oublié ? <a href="/reset-password" className='text-blue-500 w-full'>Réinitialiser le mot de passe</a></p>
+          <p className='text-white w-full'>Mot de passe oublié ? <a href="/auth/reset/password" className='text-blue-500 w-full'>Réinitialiser le mot de passe</a></p>
         </div>
       </div>
     </div>

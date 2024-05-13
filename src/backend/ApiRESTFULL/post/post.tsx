@@ -1,8 +1,7 @@
 import axios from "axios";
 import { API_URL } from "../../../../config";
 
-
-interface  RegistrationData{
+interface RegistrationData {
   email: string;
   first_name: string;
   last_name: string;
@@ -25,7 +24,6 @@ export const PostAPI = {
       throw error;
     }
   },
-  
 
   JwtCreate: async (credentials: JwtCreate) => {
     try {
@@ -37,7 +35,10 @@ export const PostAPI = {
       const userData = response.data;
       if (userData.refresh) {
         // Utiliser le refresh token pour obtenir un nouvel access token
-        const refreshResponse = await axios.post(`${API_URL}/auth/jwt/refresh/`,{ refresh: userData.refresh });
+        const refreshResponse = await axios.post(
+          `${API_URL}/auth/jwt/refresh/`,
+          { refresh: userData.refresh }
+        );
         const { access } = refreshResponse.data;
         userData.access = access;
       }
@@ -76,17 +77,35 @@ export const PostAPI = {
     }
   },
 
-  ResendActivationEmail: async(email: string) => {
+  ResendActivationEmail: async (email: string) => {
     try {
       await axios.post(`${API_URL}/auth/users/resend_activation/`, {
         email: email,
       });
-      } catch (error) {
-        console.error("Erreur lors de la réexpédition de l'email d'activation :", error);
-        throw error;
-      }
+    } catch (error) {
+      console.error(
+        "Erreur lors de la réexpédition de l'email d'activation :",
+        error
+      );
+      throw error;
     }
-  
+  },
+
+  ResetPasswordAPI: async (email: string) => {
+    try {
+      await axios.post(`${API_URL}/auth/users/reset_password/`, {
+        email: email,
+      });
+    } catch (error) {
+      console.error(
+        "Erreur lors de la réexpédition de l'email d'activation :",
+        error
+      );
+      throw error;
+    }
+  },
+
+
 
   // Autres méthodes...
 };
