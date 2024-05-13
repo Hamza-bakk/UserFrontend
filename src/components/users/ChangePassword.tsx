@@ -6,24 +6,22 @@ import axios from "axios";
 export const ChangePassword = () => {
   const { uid, token } = useParams();
   const navigate = useNavigate();
-  const [new_password, setNewPassword] = useState("");
-  const [re_new_password, setReNewPassword] = useState("");
+  const [newPassword, setNewPassword] = useState("");
+  const [reNewPassword, setReNewPassword] = useState("");
 
   const handleNewPasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(new_password);
     setNewPassword(event.target.value);
   };
 
   const handleReNewPasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(re_new_password);
     setReNewPassword(event.target.value);
   };
 
   const ResetNewPasswordAPI = async() => {
     try {
-      if (new_password === re_new_password) {
+      if (newPassword === reNewPassword) {
         const response = await axios.post(`${API_URL}/auth/users/reset_password_confirm/`,
-          { uid: uid, token: token, new_password: new_password, re_new_password: re_new_password }
+          { uid: uid, token: token, new_password: newPassword, re_new_password: reNewPassword }
         );
         console.log(response.data);
         navigate("/login");
@@ -43,13 +41,13 @@ export const ChangePassword = () => {
         <h1 className="flex flex-col mt-64">ChangePassword</h1>
         <input
           type="password"
-          value={new_password}
+          value={newPassword}
           onChange={handleNewPasswordChange}
           placeholder="Nouveau mot de passe"
         />
         <input
           type="password"
-          value={re_new_password}
+          value={reNewPassword}
           onChange={handleReNewPasswordChange}
           placeholder="Confirmer le nouveau mot de passe"
         />
