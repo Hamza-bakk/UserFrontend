@@ -1,12 +1,19 @@
 import { useAtom } from "jotai";
 import { userAtom } from "../../stores/userAtom";
-import React from "react";
+import React, { useState } from "react";
 
 export const Navbar = () => {
   const [user] = useAtom(userAtom);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const handleHBClick = () => {
     window.location.href = "/";
   };
+
+  const handleDropdownClick = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+  };
+
+ 
 
   return (
     <>
@@ -25,8 +32,8 @@ export const Navbar = () => {
               href="/propos-de-moi"
               className="text-white font-bold sm:text-sm hover:underline"
             >
-              A PROPOS DE MOI
-            </a>
+              ABOUT ME            
+              </a>
             <a
               href="/contact"
               className="text-white font-bold  sm:text-sm  hover:underline"
@@ -38,15 +45,34 @@ export const Navbar = () => {
                 href="/login"
                 className="text-white font-bold sm:text-sm hover:underline"
               >
-                CONNEXION
+                LOGIN
               </a>
             ) : (
-              <a
-                href="/logout"
-                className="text-white font-bold sm:text-sm hover:underline"
-              >
-                DÉCONNEXION
-              </a>
+              <div className="flex relative ">
+                <button
+                  onClick={handleDropdownClick}
+                  className="text-white font-bold sm:text-sm hover:underline items-center"
+                >
+                PROFILE                
+              </button>
+                {isDropdownOpen && (
+                  <div
+                    className="flex absolute flex-col backdrop:items-center justify-center text-center top-full left-1/2 transform -translate-x-1/2 min-w-max marker gradient-background shadow-lg rounded-md"
+                  >
+                   <a
+                      href=""
+                      className="block px-4 py-2 mt-2 text-gray-200 hover:bg-gray-500"
+                    >
+                      CHANGE PASSWORD
+                    </a>
+                    <a
+                      href="/logout"
+                      className="block px-4 py-2 mt-2 text-gray-200 hover:bg-gray-500">
+                      LOGOUT
+                    </a>
+                  </div>
+                )}
+              </div>
             )}
           </div>
         </div>
@@ -54,4 +80,3 @@ export const Navbar = () => {
     </>
   );
 };
-

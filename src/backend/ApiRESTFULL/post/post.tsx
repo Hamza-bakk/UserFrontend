@@ -49,20 +49,20 @@ export const PostAPI = {
     }
   },
 
-  LogoutUser: async () => {
-    try {
-      const token = localStorage.getItem("access_token");
-      await axios.post(`${API_URL}/auth/jwt/verify/`, { token });
-      if (token === token) {
-        localStorage.removeItem("access_token");
-      } else {
-        console.error("Échec de la vérification du token");
-      }
-    } catch (error) {
-      console.error("Error logging out:", error);
-      throw error;
-    }
-  },
+  // LogoutUser: async () => {
+  //   try {
+  //     const token = localStorage.getItem("access_token");
+  //     await axios.post(`${API_URL}/auth/jwt/verify/`, { token });
+  //     if (token === token) {
+  //       localStorage.removeItem("access_token");
+  //     } else {
+  //       console.error("Échec de la vérification du token");
+  //     }
+  //   } catch (error) {
+  //     console.error("Error logging out:", error);
+  //     throw error;
+  //   }
+  // },
 
   Userconfirmation: async (uid: string, token: string) => {
     try {
