@@ -14,6 +14,13 @@ interface JwtCreate {
   password: string;
 }
 
+interface formDataPassword {
+  new_password: string, 
+  re_new_password: string,
+  current_password: string,
+
+}
+
 export const PostAPI = {
   RegisterUser: async (credentials: RegistrationData) => {
     try {
@@ -105,7 +112,29 @@ export const PostAPI = {
     }
   },
 
-
+  SetNewPasswordAPI: async (token: string, formDataPassword: formDataPassword) => {
+    try {
+      console.log(token);
+      
+      
+      const config = {
+        headers: {
+          Authorization: `JWT ${token}`,
+        },
+      };
+      const response = await axios.post(
+        `${API_URL}/auth/users/set_password/`,
+          formDataPassword,
+          config,
+      
+      );
+      console.log(response.data);
+      return response;
+    } catch (error) {
+      console.error("Error send data:", error);
+      throw error;
+    }
+  },
 
   // Autres méthodes...
 };

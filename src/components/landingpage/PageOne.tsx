@@ -4,7 +4,6 @@ import { useAtom } from "jotai";
 
 export const PageOne = () => {
   const [user] = useAtom(userAtom);
-  console.log(`Le user first name dans page home est`, user.first_name);
   const [formattedTime, setFormattedTime] = useState(
     new Date().toLocaleTimeString("fr-FR", {
       hour: "2-digit",

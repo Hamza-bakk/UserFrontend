@@ -1,6 +1,6 @@
 import './assets/styles/globals.scss';
 import React, { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import { useAtom } from 'jotai';
 import { userAtom } from './stores/userAtom';
 import Cookies from 'js-cookie';
@@ -17,16 +17,19 @@ import { ConfirmationMail } from './components/users/ConfirmationMail';
 import { ResendConfirmationEmail } from './components/users/ResendConfirmationEmail';
 import { ResetPassword } from './components/users/ResetPassword';
 import { ChangePassword } from './components/users/ChangePassword';
+import { SettingForm } from './components/profile/SettingForm';
+import { NewPassword } from './components/profile/NewPassword';
+import { ConfirmNewPassword } from './components/profile/ConfirmNewPassword';
 
 function AppContent() {
   const [, setUser] = useAtom(userAtom);
+  const navigate = useNavigate()
   const [loading, setLoading] = useState(true);
   const location = useLocation();
 
   useEffect(() => {
     const fetchUserData = async () => {
       const token = Cookies.get('access_token');
-
       if (token && location.pathname !== '/logout') {
         try {
           const config = {
@@ -42,7 +45,9 @@ function AppContent() {
             email: userData.email,
             isAuth: true,
           });
+
         } catch (error) {
+          navigate("/login")
           console.error('Error fetching user data:', error);
         }
       }
@@ -50,7 +55,7 @@ function AppContent() {
     };
 
     fetchUserData();
-  }, [setUser, location.pathname]);
+  }, [setUser, location.pathname, navigate]);
 
   if (loading) {
     return <AwaitPage timeout={120000} />;
@@ -69,6 +74,10 @@ function AppContent() {
         <Route path="/auth/users/activation/:uid/:token" element={<ConfirmationMail />} />
         <Route path="/auth/users/password/reset/confirm/:uid/:token" element={<ChangePassword />} />
         <Route path="/auth/resend/confirmation/email" element={<ResendConfirmationEmail />} />
+        <Route path="/user/account" element={<SettingForm/>} />
+        <Route path="/change/password" element ={<NewPassword />} />
+        <Route path="/confirm/password" element ={<ConfirmNewPassword />} />
+
       </Routes>
     </>
   );
