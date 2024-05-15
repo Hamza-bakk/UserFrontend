@@ -50,6 +50,8 @@ export const NewPassword = () => {
                         placeholder="Current password"
                         value={formDataPassword.current_password}
                         onChange={handleChangePassword}
+                        className="flex border border-gray-300 rounded-md p-2 justify-start text-start items-start"
+
                     />
                     <input
                         name="new_password"
@@ -58,6 +60,8 @@ export const NewPassword = () => {
                         placeholder="New password"
                         value={formDataPassword.new_password}
                         onChange={handleChangePassword}
+                        className="flex border border-gray-300 rounded-md p-2 justify-start text-start items-start"
+
                     />
                     <input
                         name="re_new_password"
@@ -66,6 +70,8 @@ export const NewPassword = () => {
                         placeholder="New password again"
                         value={formDataPassword.re_new_password}
                         onChange={handleChangePassword}
+                        className="flex border border-gray-300 rounded-md p-2 justify-start text-start items-start"
+
                     />
                     <button type="submit" className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md">
                         Save

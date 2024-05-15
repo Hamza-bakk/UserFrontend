@@ -29,7 +29,7 @@ export const SettingForm = () => {
               Change Password
             </a>
             <a
-              href="/"
+              href="/delete/user"
               className="text-white  border-double border-4 border-sky-500 font-bold text-lg sm:text-sm hover:underline transition-colors duration-300 ease-in-out">
               Delete Account
             </a>

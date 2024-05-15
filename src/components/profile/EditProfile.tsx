@@ -25,9 +25,11 @@ export const EditProfile = () => {
     }
   }, [user, navigate]);
 
-  const handleChangeUserForm = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChangeUserForm = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
-     if (name !== "email") {
+    if (name !== "email") {
       setUserData((prevState) => ({
         ...prevState,
         [name]: value,
@@ -44,7 +46,7 @@ export const EditProfile = () => {
       }
       console.log(userData);
       console.log(token);
-      
+
       await EditProfileAPI(token, userData);
       navigate("/user/account");
     } catch (error) {
@@ -60,9 +62,8 @@ export const EditProfile = () => {
           <div className="w-full gradient-background max-w-lg p-8 gap-8 flex flex-col text-center bg-white rounded-lg shadow-lg transition-all duration-300 ease-in-out hover:shadow-xl">
             <form onSubmit={handleSubmit}>
               <div className="flex flex-col gap-4">
-             
                 <p className="flex flex-col justify-start text-start items-start text-white font-bold">
-                    First name
+                  First name
                 </p>
                 <input
                   type="text"
@@ -72,8 +73,8 @@ export const EditProfile = () => {
                   className="flex border border-gray-300 rounded-md p-2 justify-start text-start items-start"
                 />
 
-<p className="flex flex-col justify-start text-start items-start text-white font-bold">
-                    Last name
+                <p className="flex flex-col justify-start text-start items-start text-white font-bold">
+                  Last name
                 </p>
 
                 <input
@@ -84,8 +85,8 @@ export const EditProfile = () => {
                   className="flex border border-gray-300 rounded-md p-2 justify-start text-start items-start"
                 />
 
-<p className="flex flex-col justify-start text-start items-start text-white font-bold">
-                    Email (change not possible)
+                <p className="flex flex-col justify-start text-start items-start text-white font-bold">
+                  Email (change not possible)
                 </p>
                 <input
                   type="email"

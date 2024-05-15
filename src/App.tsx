@@ -21,6 +21,7 @@ import { SettingForm } from './components/profile/SettingForm';
 import { NewPassword } from './components/profile/NewPassword';
 import { ConfirmNewPassword } from './components/profile/ConfirmNewPassword';
 import { EditProfile } from './components/profile/EditProfile';
+import { DeleteProfile } from './components/profile/DeleteProfile';
 
 function AppContent() {
   const [, setUser] = useAtom(userAtom);
@@ -49,7 +50,7 @@ function AppContent() {
           });
 
         } catch (error) {
-          navigate("/login")
+          navigate("/")
           console.error('Error fetching user data:', error);
         }
       }
@@ -80,6 +81,7 @@ function AppContent() {
         <Route path="/change/password" element ={<NewPassword />} />
         <Route path="/confirm/password" element ={<ConfirmNewPassword />} />
         <Route path="/edit/profil" element = {<EditProfile />} />
+        <Route path="/delete/user" element = {< DeleteProfile/>} />
 
       </Routes>
     </>
