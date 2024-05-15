@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useCookies } from "react-cookie";
 import { PostAPI } from "../../backend/ApiRESTFULL/post/post";
 
 const { SetNewPasswordAPI } = PostAPI;
 
 export const NewPassword = () => {
+    const [cookies] = useCookies(['access_token']);
     const navigate = useNavigate();
     const [formDataPassword, setFormDataPassword] = useState({
         current_password: "",
@@ -23,14 +25,11 @@ export const NewPassword = () => {
     const handleSubmitNewPassword = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         try {
-            const token = localStorage.getItem("access_token");
+            const token = cookies['access_token'];
             if (!token) {
                 console.error("No token found");
                 return;
             }
-
-            console.log(token);
-            console.log(formDataPassword);
 
             await SetNewPasswordAPI(token, formDataPassword);
             navigate("/confirm/password");

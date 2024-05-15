@@ -1,20 +1,22 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Cookies from 'js-cookie';
 import { useAtom } from 'jotai';
 import { userAtom } from '../../stores/userAtom';
-
+import Cookies from 'js-cookie';
 
 export const Logout = () => {
   const navigate = useNavigate();
   const [, setUser] = useAtom(userAtom);
 
   const logoutOn = async () => {
-    try {
-      Cookies.remove('access_token');
+    try { 
+      
+    Cookies.remove('access_token')
+   
       setUser({
         id: "",
         first_name: "",
+        last_name: "",
         email: "",
         isAuth: false,
       }); 

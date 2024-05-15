@@ -114,9 +114,6 @@ export const PostAPI = {
 
   SetNewPasswordAPI: async (token: string, formDataPassword: formDataPassword) => {
     try {
-      console.log(token);
-      
-      
       const config = {
         headers: {
           Authorization: `JWT ${token}`,
@@ -128,7 +125,6 @@ export const PostAPI = {
           config,
       
       );
-      console.log(response.data);
       return response;
     } catch (error) {
       console.error("Error send data:", error);

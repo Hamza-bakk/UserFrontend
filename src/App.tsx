@@ -20,6 +20,7 @@ import { ChangePassword } from './components/users/ChangePassword';
 import { SettingForm } from './components/profile/SettingForm';
 import { NewPassword } from './components/profile/NewPassword';
 import { ConfirmNewPassword } from './components/profile/ConfirmNewPassword';
+import { EditProfile } from './components/profile/EditProfile';
 
 function AppContent() {
   const [, setUser] = useAtom(userAtom);
@@ -42,6 +43,7 @@ function AppContent() {
           setUser({
             id: userData.id,
             first_name: userData.first_name,
+            last_name: userData.last_name,
             email: userData.email,
             isAuth: true,
           });
@@ -77,6 +79,7 @@ function AppContent() {
         <Route path="/user/account" element={<SettingForm/>} />
         <Route path="/change/password" element ={<NewPassword />} />
         <Route path="/confirm/password" element ={<ConfirmNewPassword />} />
+        <Route path="/edit/profil" element = {<EditProfile />} />
 
       </Routes>
     </>
