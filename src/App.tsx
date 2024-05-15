@@ -22,6 +22,7 @@ import { NewPassword } from './components/profile/NewPassword';
 import { ConfirmNewPassword } from './components/profile/ConfirmNewPassword';
 import { EditProfile } from './components/profile/EditProfile';
 import { DeleteProfile } from './components/profile/DeleteProfile';
+import { ToastContainer } from 'react-toastify';
 
 function AppContent() {
   const [, setUser] = useAtom(userAtom);
@@ -66,8 +67,12 @@ function AppContent() {
 
   return (
     <>
+    
       <Navbar />
+      <ToastContainer />
+
       <Routes>
+
         <Route path="/" element={<LandingPage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/logout" element={<Logout />} />

@@ -7,6 +7,8 @@ import { GetApi } from "../../backend/ApiRESTFULL/get/get";
 import Cookies from "js-cookie";
 const { JwtCreate } = PostAPI;
 const { UserLogin } = GetApi;
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export const Login = () => {
   const navigate = useNavigate();
@@ -42,6 +44,15 @@ export const Login = () => {
         isAuth: true,
       });
       navigate("/");
+      toast.success('Connexion réussite!', {
+        position: 'top-right',
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
     } catch (error) {
       console.error("Une erreur s'est produite lors de la connexion :", error);
     }

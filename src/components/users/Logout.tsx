@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { useAtom } from 'jotai';
 import { userAtom } from '../../stores/userAtom';
 import Cookies from 'js-cookie';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export const Logout = () => {
   const navigate = useNavigate();
@@ -21,6 +23,16 @@ export const Logout = () => {
         isAuth: false,
       }); 
       navigate('/');
+      toast.error('Déconnexion réussite!', {
+        position: 'top-right',
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+
     } catch (error) {
       console.error('Une erreur s\'est produite lors de la déconnexion :', error);
     }
