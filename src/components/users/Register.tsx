@@ -32,7 +32,7 @@ export const Register = () => {
       navigate("/await/confirmation");
       toast.success("The register has been succes", {
         position: "top-right",
-        autoClose: 3000,
+        autoClose: 1000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -43,7 +43,7 @@ export const Register = () => {
       console.error("Error registering user:", error);
       toast.error("A problem has Occured", {
         position: "top-right",
-        autoClose: 3000,
+        autoClose: 1000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,

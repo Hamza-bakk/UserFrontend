@@ -46,7 +46,7 @@ export const Login = () => {
       navigate("/");
       toast.success("The login has been succes", {
         position: "top-right",
-        autoClose: 3000,
+        autoClose: 1000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -57,7 +57,7 @@ export const Login = () => {
       console.error("Une erreur s'est produite lors de la connexion :", error);
       toast.error("A problem has Occured", {
         position: "top-right",
-        autoClose: 3000,
+        autoClose: 1000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,

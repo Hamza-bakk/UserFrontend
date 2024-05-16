@@ -24,7 +24,7 @@ export const Logout = () => {
       navigate("/");
       toast.success("The Logout has been succes", {
         position: "top-right",
-        autoClose: 3000,
+        autoClose: 1000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -38,7 +38,7 @@ export const Logout = () => {
       );
       toast.error("A problem has Occured", {
         position: "top-right",
-        autoClose: 3000,
+        autoClose: 1000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,

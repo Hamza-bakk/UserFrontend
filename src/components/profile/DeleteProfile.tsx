@@ -38,7 +38,7 @@ export const DeleteProfile = () => {
       navigate("/");
       toast.success('Account has been Deleted', {
         position: 'top-right',
-        autoClose: 3000,
+        autoClose: 1000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -52,7 +52,7 @@ export const DeleteProfile = () => {
       console.error("An error occurred during delete User:", error);
       toast.error('A problem has Occured', {
         position: 'top-right',
-        autoClose: 3000,
+        autoClose: 1000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,

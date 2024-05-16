@@ -8,6 +8,7 @@ export const GetApi = {
         headers: {
           Authorization: `JWT ${token}`,
         },
+        withCredentials: true,
       };
       const response = await axios.get(`${API_URL}/auth/users/me/`, config);
       const userData = response.data;

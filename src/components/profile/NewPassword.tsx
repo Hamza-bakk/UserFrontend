@@ -38,7 +38,7 @@ export const NewPassword = () => {
       navigate("/confirm/password");
       toast.success("The password has been Changed", {
         position: "top-right",
-        autoClose: 3000,
+        autoClose: 1000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -50,7 +50,7 @@ export const NewPassword = () => {
       // Display error to the user
       toast.error("A problem has Occured", {
         position: "top-right",
-        autoClose: 3000,
+        autoClose: 1000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,

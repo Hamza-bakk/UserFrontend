@@ -14,7 +14,7 @@ export const ConfirmationMail = () => {
       .then(() => {
         toast.success('Account Activate', {
           position: 'top-right',
-          autoClose: 3000,
+          autoClose: 1000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -26,7 +26,7 @@ export const ConfirmationMail = () => {
         alert(err.response.data);
         toast.error('A problem has Occured', {
           position: 'top-right',
-          autoClose: 3000,
+          autoClose: 1000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,

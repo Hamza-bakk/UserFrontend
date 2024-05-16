@@ -13,7 +13,7 @@ export const SettingForm = () => {
       navigate("/login");
       toast.error("A problem has Occured", {
         position: "top-right",
-        autoClose: 3000,
+        autoClose: 1000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
