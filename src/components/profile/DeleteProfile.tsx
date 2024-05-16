@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { DeleteApi } from "../../backend/ApiRESTFULL/delete/delete";
 import { useAtom } from "jotai";
 import { userAtom } from "../../stores/userAtom";
+import { toast } from "react-toastify";
 
 const { DeleteUserAPI } = DeleteApi;
 
@@ -35,11 +36,34 @@ export const DeleteProfile = () => {
       await DeleteUserAPI(token, userData);
       Cookies.remove("access_token")
       navigate("/");
+      toast.success('Account has been Deleted', {
+        position: 'top-right',
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    
+     
+    
     } catch (error) {
       console.error("An error occurred during delete User:", error);
+      toast.error('A problem has Occured', {
+        position: 'top-right',
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
       // Display error to the user
     }
   };
+
+
 
   useEffect(() => {
     if (!user.id) {

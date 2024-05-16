@@ -4,6 +4,7 @@ import { useAtom } from "jotai";
 import { useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import { PutApi } from "../../backend/ApiRESTFULL/put/put";
+import { toast } from "react-toastify";
 
 const { EditProfileAPI } = PutApi;
 
@@ -44,17 +45,35 @@ export const EditProfile = () => {
         console.error("No token found");
         return;
       }
-      console.log(userData);
-      console.log(token);
-
       await EditProfileAPI(token, userData);
       navigate("/user/account");
+      toast.success('The profile has been Edited', {
+    position: 'top-right',
+    autoClose: 3000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+  });
     } catch (error) {
       console.error("An error occurred during password change:", error);
-      // Display error to the user
+    toast.error('A problem has Occured', {
+    position: 'top-right',
+    autoClose: 3000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+  });
     }
   };
 
+
+  
+
+ 
   return (
     <>
       {user.id && (

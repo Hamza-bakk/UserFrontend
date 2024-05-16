@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { userAtom } from '../../stores/userAtom';
 import { useAtom } from 'jotai';
+import { toast } from 'react-toastify';
 
 
 export const ConfirmNewPassword = () => {
@@ -10,9 +11,19 @@ export const ConfirmNewPassword = () => {
 
   useEffect(() => {
     if (!user.id) {
-      navigate('/login');
+    navigate('/login');  
+    toast.success('The new password has been confirmed', {
+    position: 'top-right',
+    autoClose: 3000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+  });
     }
   }, [user, navigate]);
+
 
 
   return (

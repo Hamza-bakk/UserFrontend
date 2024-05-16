@@ -12,11 +12,27 @@ export const ConfirmationMail = () => {
   const activeClick = () => {
     axios.post(`${API_URL}/auth/users/activation/`, { uid: uid, token: token })
       .then(() => {
-        toast.success('Your account has been activated');
-        navigate('/login');
+        toast.success('Account Activate', {
+          position: 'top-right',
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });        navigate('/login');
       })
       .catch(err => {
         alert(err.response.data);
+        toast.error('A problem has Occured', {
+          position: 'top-right',
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
       });
   };
   
@@ -24,6 +40,7 @@ export const ConfirmationMail = () => {
     activeClick();
   }, []);
 
+  
 
   
   return (
